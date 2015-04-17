@@ -1,3 +1,5 @@
+/* SHORTLY-ANGULAR */
+
 angular.module('shortly', [
   'shortly.services',
   'shortly.links',
@@ -16,7 +18,7 @@ angular.module('shortly', [
       controller: 'AuthController'
     })
     .when('/links', {
-      templateUrl: 'app/links/links.html',
+      templateUrl: 'app/events/events.html',
       controller: 'LinksController'
     })
     .when('/shorten', {
@@ -24,7 +26,7 @@ angular.module('shortly', [
       controller: 'ShortenController'
     })
     .when('/', {
-      templateUrl: 'app/links/links.html',
+      templateUrl: 'app/events/events.html',
       controller: 'LinksController'      
     })
     .when('/:code', {
@@ -73,3 +75,51 @@ angular.module('shortly', [
     }
   });
 });
+
+
+/* AWKWARDALPS */
+
+// // Declare app level module which depends on views, and components
+// angular.module('lunchCorgi', [
+//   'lunchCorgi.services',
+//   'lunchCorgi.events',
+//   'lunchCorgi.auth',
+//   'ngRoute'
+//   ])
+// .config(function($routeProvider, $httpProvider) {
+//   $routeProvider
+//       .when('/', {
+//         templateUrl: 'client/app/events/eventsPage.html',
+//         controller: 'eventController'
+//     })
+//       .when('/signup', {
+//         templateUrl: 'client/app/users/signup.html',
+//         controller: 'SignUpCtrl'
+//     })
+//       .when('/signin', {
+//         templateUrl: 'client/app/users/signin.html',
+//         controller: 'SignInCtrl'
+//     })
+// })
+// .factory('AttachTokens', function ($window) {
+//   var attach = {
+//     request: function (object) {
+//       var jwt = $window.localStorage.getItem('com.shortly');
+//       if (jwt) {
+//         object.headers['x-access-token'] = jwt;
+//       }
+//       object.headers['Allow-Control-Allow-Origin'] = '*';
+//       return object;
+//     }
+//   };
+//   return attach;
+// })
+// .run(function ($rootScope, $location, Auth) {
+//   $rootScope.$on('$routeChangeStart', function (evt, next, current) {
+//     if (next.$$route && next.$$route.authenticate && !Auth.isAuth()) {
+//       $location.path('/signin');
+//     }
+//   });
+// });
+
+

@@ -1,3 +1,6 @@
+
+/* shortly-angular */
+
 var morgan      = require('morgan'), // used for logging incoming request
     bodyParser  = require('body-parser'),
     helpers     = require('./helpers.js'); // our custom middleware
@@ -24,5 +27,35 @@ module.exports = function (app, express) {
 
   // inject our routers into their respective route files
   require('../users/userRoutes.js')(userRouter);
-  require('../links/linkRoutes.js')(linkRouter);
+  require('../events/eventRoutes.js')(linkRouter);
 };
+
+
+/* awkwardalps */
+
+// var bodyParser  = require('body-parser');
+// var morgan = require('morgan');
+
+// module.exports = function (app, express) {
+//   // Express 4 allows us to use multiple routers with their own configurations
+//   var userRouter = express.Router();
+//   var eventsRouter = express.Router();
+
+//   app.use(morgan('dev'));
+//   app.use(bodyParser.urlencoded({extended: true}));
+//   app.use(bodyParser.json());
+//   // app.use(express.static(__dirname + '..'));
+  
+//   app.use('/api/users', userRouter); // use user router for all user request
+
+//   // authentication middleware used to decode token and made available on the request
+//   //app.use('/api/links', helpers.decode);
+//   app.use('/api/events', eventsRouter); // user link router for link request
+//   // app.use(helpers.errorLogger);
+//   // app.use(helpers.errorHandler);
+
+//   // inject our routers into their respective route files
+//   require('./users/users-routes.js')(userRouter);
+//   require('./events/events-routes.js')(eventsRouter);
+// };
+
