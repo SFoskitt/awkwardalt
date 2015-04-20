@@ -13,7 +13,7 @@ var mongoose = require('mongoose'),
 //  url: String
 // });
 
-var LinkSchema = new Schema ({
+var EventSchema = new mongoose.Schema ({
 	eventID : { type: Number, ref: 'eventID'},
 	description : String,
 	location : String,
@@ -28,13 +28,13 @@ var createSha = function(url) {
   return shasum.digest('hex').slice(0, 5);
 };
 
-LinkSchema.pre('save', function(next){
+EventSchema.pre('save', function(next){
   var code = createSha(this.url);
   this.code = code;
   next();
 });
 
-module.exports = mongoose.model('Link', LinkSchema);
+module.exports = mongoose.model('Event', EventSchema);
 
 
 /* awkwardalps */

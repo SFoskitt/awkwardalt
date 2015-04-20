@@ -7,7 +7,11 @@ var Link    = require('./eventModel.js'),
 
 
 module.exports = {
-  findUrl: function (req, res, next, code) {
+
+  /* ALL EVENTS METHOD FROM OTHER PROJECT HERE */
+
+  /* MAYBE USE THIS TECHNIQUE TO FIND A USER */
+  findUrl: function (req, res, next, code) {  //part of the shortcode hijack w/eventRoutes.js
     var findLink = Q.nbind(Link.findOne, Link);
     findLink({code: code})
       .then(function (link) {
@@ -23,6 +27,7 @@ module.exports = {
       });
   },
 
+  /* MAYBE USE THIS TECHNIQUE FOR ALLEVENTS */
   allLinks: function (req, res, next) {
   var findAll = Q.nbind(Link.find, Link);
 
@@ -35,6 +40,7 @@ module.exports = {
     });
   },
 
+  /* MAYBE NEW EVENT METHOD */
   newLink: function (req, res, next) {
     var url = req.body.url;
     console.log(req.body);
