@@ -1,33 +1,33 @@
 /* SHORTLY-ANGULAR */
 
-angular.module('shortly.services', [])
+angular.module('awkwardalt.services', [])
 
-.factory('Links', function ($http, $location) {
+.factory('Events', function ($http, $location) {
   // Your code here
-  var getLinks = function(data) {
+  var getEvents = function(data) {
     return $http({
       method: 'GET',
-      url: '/api/links'
+      url: '/api/events'
     })
     .then(function(resp){
       return resp.data;
     })
   }
 
-  var addLink = function(link) {
+  var addEvent = function(event) {
     return $http({
       method: 'POST',
-      url: '/api/links',
-      data: link
+      url: '/api/events',
+      data: event
     })
     .then(function () {
-      $location.path('/links')
+      $location.path('/events')
     })
   }
 
   return {
-    getLinks: getLinks,
-    addLink: addLink
+    getEvents: getEvents,
+    addEvent: addEvent
   }
 })
 
@@ -62,11 +62,11 @@ angular.module('shortly.services', [])
   };
 
   var isAuth = function () {
-    return !!$window.localStorage.getItem('com.shortly');
+    return !!$window.localStorage.getItem('com.awkwardalt');
   };
 
   var signout = function () {
-    $window.localStorage.removeItem('com.shortly');
+    $window.localStorage.removeItem('com.awkwardalt');
     $location.path('/signin');
   };
 

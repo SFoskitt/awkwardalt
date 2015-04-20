@@ -1,22 +1,23 @@
 
 /* SHORTLY-ANGULAR */
 
-angular.module('shortly.links', [])
+angular.module('awkwardalt.events', [])
 
-.controller('LinksController', function ($scope, Links) {
+.controller('EventsController', function ($scope, Events) {
+  
   $scope.data = {};
 
-  $scope.getLinks = function(){
-   Links.getLinks($scope.data)
+  $scope.getEvents = function(){
+   Events.getEvents($scope.data)
      .then(function(data){
-       $scope.data['links'] = data;
-       console.log("links data is ", data);
+       $scope.data['events'] = data;
+       console.log("events data is ", data);
      })
      .catch(function(error){
        console.error(error);
      });
   }; 
-  $scope.getLinks();
+  $scope.getEvents();
 });
 
 

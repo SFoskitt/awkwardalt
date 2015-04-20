@@ -1,13 +1,13 @@
-angular.module('shortly.shorten', [])
+angular.module('awkwardalt.createEvent', [])
 
-.controller('ShortenController', function ($scope, $location, Links) {
+.controller('CreateEventController', function ($scope, $location, Events) {
 
-	$scope.link = {};
+	$scope.event = {};
 
-	$scope.addLink = function(){
+	$scope.addEvent = function(){
 		$scope.loading = true;
-		Links.addLink($scope.link)
-		  .then(function(link){
+		Events.addEvent($scope.link)
+		  .then(function(event){
 		  	$scope.loading = false;
 		  	$location.path('/')
 
