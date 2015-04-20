@@ -1,10 +1,10 @@
 /* SHORTLY-ANGULAR */
 
-angular.module('shortly', [
-  'shortly.services',
-  'shortly.links',
-  'shortly.shorten',
-  'shortly.auth',
+angular.module('awkwardalt', [
+  'awkwardalt.services',
+  'awkwardalt.events',
+  'awkwardalt.createEvent',
+  'awkwardalt.auth',
   'ngRoute'
 ])
 .config(function($routeProvider, $httpProvider) {
@@ -17,21 +17,21 @@ angular.module('shortly', [
       templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
     })
-    .when('/links', {
+    .when('/events', {
       templateUrl: 'app/events/events.html',
-      controller: 'LinksController'
+      controller: 'EventsController'
     })
-    .when('/shorten', {
-      templateUrl: 'app/shorten/shorten.html',
-      controller: 'ShortenController'
+    .when('/createEvent', {
+      templateUrl: 'app/createEvent/createEvent.html',
+      controller: 'CreateEventController'
     })
     .when('/', {
       templateUrl: 'app/events/events.html',
-      controller: 'LinksController'      
+      controller: 'EventsController'      
     })
     .when('/:code', {
 
-      controller: 'LinksController'
+      controller: 'EventsController'
     })
     // .otherwise({
     //   templateUrl: 'app/links/links.html',
@@ -51,7 +51,7 @@ angular.module('shortly', [
   // then add it to the header so the server can validate the request
   var attach = {
     request: function (object) {
-      var jwt = $window.localStorage.getItem('com.shortly');
+      var jwt = $window.localStorage.getItem('com.awkwardalt');
       if (jwt) {
         object.headers['x-access-token'] = jwt;
       }

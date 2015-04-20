@@ -1,15 +1,23 @@
 <!-- SHORTLY-ANGULAR -->
 
 <div id='container'>
-  <h1>Your Links</h1>
+  <h1>All Events</h1>
   <div ng-model="data">
     <ul>
-    <li ng-repeat='link in data.links'>
-    <a href="http://localhost:3000/api/links/{{ link.code }}"> {{link.title}}</a>
+    <li ng-repeat='event in data.events'>
+    <!-- <a href="http://localhost:3000/api/links/{{ event.code }}"> {{link.title}}</a> -->
+    <div class='creator'>{{event.creator}}</div>
+    <div class='description'>{{event.description}}</div>
+    <div class='location'>{{event.location}}</div>
+    <div class='date'>{{event.date}}</div>
+    <div class='time'>{{event.time}}</div>
+    <button onclick='joinEvent'>Join this event!</button>
     </li>
     </ul>
 
-    <a href="#/shorten">More links to shorten? <strong>Shorten Links</strong></a>
+    <a href="#/createEvent">Create an event? <strong>Create Event</strong></a>
+
+    <!-- <a href="#/shorten">More links to shorten? <strong>Shorten Links</strong></a> -->
   </div>
 </div>
 
